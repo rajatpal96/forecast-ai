@@ -4,8 +4,6 @@ import com.forecast.ai.dto.Location;
 import com.forecast.ai.dto.SunResponse;
 import com.forecast.ai.dto.SunTimes;
 import com.forecast.ai.dto.SimpleContext;
-import com.forecast.ai.exceptions.BadRequestException;
-import com.forecast.ai.service.GeoCodingService;
 import com.forecast.ai.service.SunAssistant;
 import com.forecast.ai.service.SunriseSunsetService;
 import org.junit.jupiter.api.BeforeEach;
