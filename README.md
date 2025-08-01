@@ -5,7 +5,6 @@ This Spring Boot application provides sunrise and sunset times for a given city 
 
 ## Features
 - REST API: `/api/sun-forecast?city={city}`
-- Geocoding: Converts city name to coordinates.
 - Open-Meteo Integration: Fetches sunrise/sunset times.
 - Generative AI: Uses LangChain4j (Azure OpenAI) for user-friendly explanations.
 - Input validation and error handling.
