@@ -2,6 +2,7 @@ package com.forecast.ai.service;
 
 import com.forecast.ai.dto.SunTimes;
 import com.forecast.ai.exceptions.BadRequestException;
+import dev.langchain4j.agent.tool.Tool;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -15,6 +16,7 @@ public class SunriseSunsetService {
     private final RestTemplate restTemplate = new RestTemplate();
     private final static String OPEN_MOTO_URL = "https://api.open-meteo.com/v1/forecast?latitude=%s&longitude=%s&daily=sunrise,sunset&timezone=%s";
 
+    @Tool
     public SunTimes getSunTimes(double lat, double lon, String tz) {
         String url = String.format(OPEN_MOTO_URL, lat, lon, tz);
 

@@ -4,6 +4,7 @@ import com.forecast.ai.dto.Location;
 import com.forecast.ai.dto.SunResponse;
 import com.forecast.ai.dto.SunTimes;
 import com.forecast.ai.dto.SimpleContext;
+import com.forecast.ai.exceptions.BadRequestException;
 import com.forecast.ai.service.GeoCodingService;
 import com.forecast.ai.service.SunAssistant;
 import com.forecast.ai.service.SunriseSunsetService;
@@ -43,16 +44,10 @@ class SunriseSunsetControllerTest {
 
         when(geoCodingService.lookup("Berlin")).thenReturn(location);
         when(sunriseSunsetService.getSunTimes(52.5, 13.41, "IST")).thenReturn(sunTimes);
-        when(sunAssistant.askSubForecast(context)).thenReturn(aiResponse);
+        when(sunAssistant.askSubForecast("Berlin")).thenReturn(aiResponse);
 
         ResponseEntity<?> response = controller.getTodaySunriseSunset("Berlin");
         assertEquals(200, response.getStatusCode().value());
         assertEquals(aiResponse, response.getBody());
-    }
-
-    @Test
-    void testGetTodaySunriseSunset_InvalidCity() {
-        when(geoCodingService.lookup("")).thenThrow(new IllegalArgumentException("Invalid city name"));
-        assertThrows(IllegalArgumentException.class, () -> controller.getTodaySunriseSunset(""));
     }
 }

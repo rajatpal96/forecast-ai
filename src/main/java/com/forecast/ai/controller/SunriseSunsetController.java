@@ -1,11 +1,8 @@
 package com.forecast.ai.controller;
-
-import com.forecast.ai.dto.Location;
-import com.forecast.ai.dto.SimpleContext;
-import com.forecast.ai.dto.SunTimes;
 import com.forecast.ai.service.GeoCodingService;
 import com.forecast.ai.service.SunAssistant;
 import com.forecast.ai.service.SunriseSunsetService;
+import dev.langchain4j.model.chat.ChatModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,20 +17,19 @@ public class SunriseSunsetController {
     private final GeoCodingService geo;
     private final SunAssistant assistant;
     private final SunriseSunsetService sunriseSunsetService;
+    private final ChatModel model;
 
-    public SunriseSunsetController(GeoCodingService geo, SunAssistant assistant, SunriseSunsetService sunriseSunsetService) {
+    public SunriseSunsetController(GeoCodingService geo, SunAssistant assistant, SunriseSunsetService sunriseSunsetService, ChatModel model) {
         this.geo = geo;
         this.assistant = assistant;
         this.sunriseSunsetService = sunriseSunsetService;
+        this.model = model;
     }
 
 
     @GetMapping("/sun-forecast")
     public ResponseEntity<?> getTodaySunriseSunset(@RequestParam(name = "city") String city) {
-        Location loc = geo.lookup(city);
-        SunTimes times = sunriseSunsetService.getSunTimes(loc.latitude(), loc.longitude(), loc.timezone());
-        SimpleContext ctx = new SimpleContext(loc.name(), times.sunRise(), times.sunSet(), loc.timezone());
-        return new ResponseEntity<>(assistant.askSubForecast(ctx), HttpStatus.OK);
+        return new ResponseEntity<>(assistant.askSubForecast(city), HttpStatus.OK);
 
     }
 }
