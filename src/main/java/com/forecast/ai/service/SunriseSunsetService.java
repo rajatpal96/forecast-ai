@@ -1,7 +1,7 @@
-package com.epam.ai.service;
+package com.forecast.ai.service;
 
-import com.epam.ai.dto.SunTimes;
-import com.epam.ai.exceptions.BadRequestException;
+import com.forecast.ai.dto.SunTimes;
+import com.forecast.ai.exceptions.BadRequestException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

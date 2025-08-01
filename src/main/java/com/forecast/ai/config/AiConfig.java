@@ -1,4 +1,4 @@
-package com.epam.ai.config;
+package com.forecast.ai.config;
 
 import dev.langchain4j.model.azure.AzureOpenAiChatModel;
 import dev.langchain4j.model.chat.ChatModel;

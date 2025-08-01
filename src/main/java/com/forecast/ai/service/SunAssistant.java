@@ -1,7 +1,7 @@
-package com.epam.ai.service;
+package com.forecast.ai.service;
 
-import com.epam.ai.dto.SimpleContext;
-import com.epam.ai.dto.SunResponse;
+import com.forecast.ai.dto.SimpleContext;
+import com.forecast.ai.dto.SunResponse;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.spring.AiService;
 

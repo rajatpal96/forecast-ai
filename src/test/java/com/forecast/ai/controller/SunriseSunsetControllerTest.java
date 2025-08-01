@@ -1,12 +1,12 @@
-package com.epam.ai.controller;
+package com.forecast.ai.controller;
 
-import com.epam.ai.dto.Location;
-import com.epam.ai.dto.SunResponse;
-import com.epam.ai.dto.SunTimes;
-import com.epam.ai.dto.SimpleContext;
-import com.epam.ai.service.GeoCodingService;
-import com.epam.ai.service.SunAssistant;
-import com.epam.ai.service.SunriseSunsetService;
+import com.forecast.ai.dto.Location;
+import com.forecast.ai.dto.SunResponse;
+import com.forecast.ai.dto.SunTimes;
+import com.forecast.ai.dto.SimpleContext;
+import com.forecast.ai.service.GeoCodingService;
+import com.forecast.ai.service.SunAssistant;
+import com.forecast.ai.service.SunriseSunsetService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

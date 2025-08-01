@@ -1,4 +1,4 @@
-package com.epam.ai;
+package com.forecast.ai;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.epam.ai.exceptions;
+package com.forecast.ai.exceptions;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;

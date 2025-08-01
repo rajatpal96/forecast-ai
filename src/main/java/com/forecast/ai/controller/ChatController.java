@@ -1,4 +1,4 @@
-package com.epam.ai.controller;
+package com.forecast.ai.controller;
 
 import dev.langchain4j.model.chat.ChatModel;
 import org.springframework.beans.factory.annotation.Autowired;

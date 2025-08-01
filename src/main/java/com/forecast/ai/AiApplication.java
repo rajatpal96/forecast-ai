@@ -1,4 +1,4 @@
-package com.epam.ai;
+package com.forecast.ai;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
