@@ -1,9 +1,6 @@
 package com.forecast.ai.controller;
 
-import com.forecast.ai.dto.Location;
 import com.forecast.ai.dto.SunResponse;
-import com.forecast.ai.dto.SunTimes;
-import com.forecast.ai.dto.SimpleContext;
 import com.forecast.ai.service.SunAssistant;
 import com.forecast.ai.service.SunriseSunsetService;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,8 +16,6 @@ import static org.mockito.Mockito.*;
 class SunriseSunsetControllerTest {
 
     @Mock
-    private GeoCodingService geoCodingService;
-    @Mock
     private SunAssistant sunAssistant;
     @Mock
     private SunriseSunsetService sunriseSunsetService;
@@ -35,17 +30,19 @@ class SunriseSunsetControllerTest {
 
     @Test
     void testGetTodaySunriseSunset_ValidCity() {
-        Location location = new Location("Berlin", 52.5, 13.41, "IST");
-        SunTimes sunTimes = new SunTimes("2025-08-01T08:55", "2025-08-01T00:30");
-        SimpleContext context = new SimpleContext("Berlin", "2025-08-01T08:55", "2025-08-01T00:30", "IST");
+        // Only city name is passed to assistant.askSubForecast
         SunResponse aiResponse = new SunResponse("Berlin", "2025-08-01T08:55", "2025-08-01T00:30", "Tomorrow in Berlin, the sun will rise at 8:55 AM IST and set at 12:30 AM IST.");
 
-        when(geoCodingService.lookup("Berlin")).thenReturn(location);
-        when(sunriseSunsetService.getSunTimes(52.5, 13.41, "IST")).thenReturn(sunTimes);
         when(sunAssistant.askSubForecast("Berlin")).thenReturn(aiResponse);
 
         ResponseEntity<?> response = controller.getTodaySunriseSunset("Berlin");
         assertEquals(200, response.getStatusCode().value());
         assertEquals(aiResponse, response.getBody());
+    }
+
+    @Test
+    void testGetTodaySunriseSunset_InvalidCity() {
+        when(sunAssistant.askSubForecast("")).thenThrow(new IllegalArgumentException("Invalid city name"));
+        assertThrows(IllegalArgumentException.class, () -> controller.getTodaySunriseSunset(""));
     }
 }

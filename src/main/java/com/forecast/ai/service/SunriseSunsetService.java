@@ -1,16 +1,9 @@
 package com.forecast.ai.service;
 
-import com.forecast.ai.dto.SunTimes;
-import com.forecast.ai.exceptions.BadRequestException;
 import dev.langchain4j.agent.tool.P;
 import dev.langchain4j.agent.tool.Tool;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.function.Function;
 
 @Service
 public class SunriseSunsetService {
