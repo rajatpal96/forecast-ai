@@ -43,7 +43,7 @@ class SunriseSunsetControllerTest {
 
         when(geoCodingService.lookup("Berlin")).thenReturn(location);
         when(sunriseSunsetService.getSunTimes(52.5, 13.41, "IST")).thenReturn(sunTimes);
-        when(sunAssistant.askSun(context)).thenReturn(aiResponse);
+        when(sunAssistant.askSubForecast(context)).thenReturn(aiResponse);
 
         ResponseEntity<?> response = controller.getTodaySunriseSunset("Berlin");
         assertEquals(200, response.getStatusCode().value());

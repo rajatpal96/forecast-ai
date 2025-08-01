@@ -33,7 +33,7 @@ public class SunriseSunsetController {
         Location loc = geo.lookup(city);
         SunTimes times = sunriseSunsetService.getSunTimes(loc.latitude(), loc.longitude(), loc.timezone());
         SimpleContext ctx = new SimpleContext(loc.name(), times.sunRise(), times.sunSet(), loc.timezone());
-        return new ResponseEntity<>(assistant.askSun(ctx), HttpStatus.OK);
+        return new ResponseEntity<>(assistant.askSubForecast(ctx), HttpStatus.OK);
 
     }
 }
