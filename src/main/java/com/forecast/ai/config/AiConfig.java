@@ -1,12 +1,10 @@
 package com.forecast.ai.config;
 
 import dev.langchain4j.model.azure.AzureOpenAiChatModel;
-import dev.langchain4j.model.azure.AzureOpenAiEmbeddingModel;
 import dev.langchain4j.model.chat.ChatModel;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class AiConfig {
@@ -28,15 +26,4 @@ public class AiConfig {
                 .deploymentName(deploymentName)
                 .build();
     }
-
-   /* @Bean
-    @Primary
-    public AzureOpenAiEmbeddingModel embeddingModel() {
-        return AzureOpenAiEmbeddingModel.builder()
-                .apiKey(apiKey)
-                .endpoint(apiUrl)
-                .deploymentName(deploymentName)
-                .logRequestsAndResponses(true)
-                .build();
-    }*/
 }
