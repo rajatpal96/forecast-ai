@@ -5,17 +5,12 @@ import dev.langchain4j.data.document.Metadata;
 import dev.langchain4j.data.embedding.Embedding;
 import dev.langchain4j.data.segment.TextSegment;
 import dev.langchain4j.model.embedding.EmbeddingModel;
-import dev.langchain4j.rag.content.retriever.ContentRetriever;
 import dev.langchain4j.store.embedding.qdrant.QdrantEmbeddingStore;
-import io.qdrant.client.grpc.Points;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static io.qdrant.client.ConditionFactory.matchKeyword;
-import static io.qdrant.client.QueryFactory.nearest;
 
 @Service
 @AllArgsConstructor
