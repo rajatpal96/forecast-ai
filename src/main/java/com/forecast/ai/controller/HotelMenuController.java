@@ -26,9 +26,9 @@ public class HotelMenuController {
         return new ResponseEntity<>(new ResponseMessage("Menu item added successfully!"), HttpStatus.OK);
     }
 
-    @PostMapping("/search")
+    @GetMapping("/search")
     public ResponseEntity<?> getHotelMenu(@RequestParam String query){
-        return new ResponseEntity<>(assistant.getHotelMenu(query).menuList(), HttpStatus.OK);
+        return new ResponseEntity<>(assistant.getHotelMenu(query), HttpStatus.OK);
     }
 
 }

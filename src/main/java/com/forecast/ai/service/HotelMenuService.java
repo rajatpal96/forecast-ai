@@ -34,6 +34,8 @@ public class HotelMenuService {
 
     }
 
+
+
    /* public Object searchFromVectorStore(String query,HotelMenu menu){
         Embedding embedding = embeddingModel.embed(query).content();
 

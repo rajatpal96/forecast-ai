@@ -71,20 +71,12 @@ public class AiConfig {
     }
 
     @Bean
-    protected ContentRetriever getEmbeddingStoreContentRetriever(EmbeddingModel embeddingModel) {
-        EmbeddingStore<TextSegment> embeddingStore =
-                QdrantEmbeddingStore.builder()
-                        .collectionName("hotel_menu")
-                        .host(qdrantUrl)
-                        .port(6334)
-                        .apiKey(qdrantKey)
-                        .useTls(true)
-                        .build();
+    protected ContentRetriever getEmbeddingStoreContentRetriever(EmbeddingModel embeddingModel , QdrantEmbeddingStore embeddingStore) {
         return EmbeddingStoreContentRetriever.builder()
                 .embeddingStore(embeddingStore)
                 .embeddingModel(embeddingModel)
-                .maxResults(2)
-                .minScore(0.6)
+                .maxResults(5)
+                .minScore(0.8)
                 .build();
     }
 }
