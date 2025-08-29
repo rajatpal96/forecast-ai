@@ -1,12 +1,10 @@
 package com.forecast.ai.config;
 
-import dev.langchain4j.data.segment.TextSegment;
 import dev.langchain4j.model.azure.AzureOpenAiChatModel;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.embedding.EmbeddingModel;
 import dev.langchain4j.rag.content.retriever.ContentRetriever;
 import dev.langchain4j.rag.content.retriever.EmbeddingStoreContentRetriever;
-import dev.langchain4j.store.embedding.EmbeddingStore;
 import dev.langchain4j.store.embedding.qdrant.QdrantEmbeddingStore;
 import io.qdrant.client.QdrantClient;
 import io.qdrant.client.QdrantGrpcClient;
@@ -71,7 +69,7 @@ public class AiConfig {
     }
 
     @Bean
-    protected ContentRetriever getEmbeddingStoreContentRetriever(EmbeddingModel embeddingModel , QdrantEmbeddingStore embeddingStore) {
+    protected ContentRetriever getContentRetriever(EmbeddingModel embeddingModel , QdrantEmbeddingStore embeddingStore) {
         return EmbeddingStoreContentRetriever.builder()
                 .embeddingStore(embeddingStore)
                 .embeddingModel(embeddingModel)

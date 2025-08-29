@@ -239,7 +239,7 @@
         cardDiv.innerHTML = `
             <h3>${dishName}</h3>
             <p>${description}</p>
-            <p><span>Price:</span> $${price}</p>
+            <p><span>Price:</span> ₹${price}</p>
         `;
         chatBody.appendChild(cardDiv);
         chatBody.scrollTop = chatBody.scrollHeight;
@@ -278,7 +278,7 @@
             if (menuList && menuList.length > 0) {
                 menuList.forEach(item => addMenuCard(item.dishName, item.description, item.price));
             } else {
-                addMessage("Sorry, I couldn't find any items matching your query.", "bot");
+                //addMessage("Sorry, I couldn't find any items matching your query.", "bot");
             }
         } else {
             addMessage("I'm having trouble reaching the server. Please try again later.", "bot");

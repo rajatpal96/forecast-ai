@@ -23,4 +23,6 @@ public class RagService {
         Query qdrantQuery = Query.from(query);
         return contentRetriever.retrieve(qdrantQuery);
     }
+
+
 }
