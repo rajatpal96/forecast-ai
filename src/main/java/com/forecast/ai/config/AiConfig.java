@@ -73,7 +73,7 @@ public class AiConfig {
         return EmbeddingStoreContentRetriever.builder()
                 .embeddingStore(embeddingStore)
                 .embeddingModel(embeddingModel)
-                .maxResults(5)
+                .maxResults(3)
                 .minScore(0.8)
                 .build();
     }
